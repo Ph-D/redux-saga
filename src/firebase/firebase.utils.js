@@ -3,13 +3,13 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-  apiKey: 'AIzaSyCdHT-AYHXjF7wOrfAchX4PIm3cSj5tn14',
-  authDomain: 'crwn-db.firebaseapp.com',
-  databaseURL: 'https://crwn-db.firebaseio.com',
-  projectId: 'crwn-db',
-  storageBucket: 'crwn-db.appspot.com',
-  messagingSenderId: '850995411664',
-  appId: '1:850995411664:web:7ddc01d597846f65'
+  apiKey: 'AIzaSyA4pICJsncfHNZLYUoDGXTOPuPIfcbjlgs',
+  authDomain: 'crwn2-f8c7b.firebaseapp.com',
+  databaseURL: 'https://crwn2-f8c7b.firebaseio.com',
+  projectId: 'crwn2-f8c7b',
+  storageBucket: 'crwn2-f8c7b.appspot.com',
+  messagingSenderId: '566860613372',
+  appId: '1:566860613372:web:509c14170738c435f1f979',
 };
 
 firebase.initializeApp(config);
@@ -75,8 +75,8 @@ export const convertCollectionsSnapshotToMap = collections => {
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: 'select_account' });
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: 'select_account' });
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 
 export default firebase;
