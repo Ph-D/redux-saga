@@ -3,13 +3,13 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-  apiKey: 'AIzaSyA4pICJsncfHNZLYUoDGXTOPuPIfcbjlgs',
-  authDomain: 'crwn2-f8c7b.firebaseapp.com',
-  databaseURL: 'https://crwn2-f8c7b.firebaseio.com',
-  projectId: 'crwn2-f8c7b',
-  storageBucket: 'crwn2-f8c7b.appspot.com',
-  messagingSenderId: '566860613372',
-  appId: '1:566860613372:web:509c14170738c435f1f979',
+  apiKey: "AIzaSyA4pICJsncfHNZLYUoDGXTOPuPIfcbjlgs",
+  authDomain: "crwn2-f8c7b.firebaseapp.com",
+  databaseURL: "https://crwn2-f8c7b.firebaseio.com",
+  projectId: "crwn2-f8c7b",
+  storageBucket: "crwn2-f8c7b.appspot.com",
+  messagingSenderId: "566860613372",
+  appId: "1:566860613372:web:509c14170738c435f1f979"
 };
 
 firebase.initializeApp(config);
@@ -70,6 +70,15 @@ export const convertCollectionsSnapshotToMap = collections => {
     accumulator[collection.title.toLowerCase()] = collection;
     return accumulator;
   }, {});
+};
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged(userAuth => {
+      unsubscribe();
+      resolve(userAuth);
+    }, reject);
+  });
 };
 
 export const auth = firebase.auth();
